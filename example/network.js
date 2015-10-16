@@ -1,10 +1,7 @@
 var sim = require('../')()
 
 for (var i = 0; i < 20; i++) (function (i) {
-  var node = sim.createNode(i, {
-    eth0: '192.168.' + i + '.1',
-    eth1: '192.168.' + i + '.2'
-  })
+  var node = sim.createNode(i, [ 'eth0', 'eth1' ])
   node.on('eth0:message', function (buf) {
     node.send('eth1', buf)
   })
@@ -15,6 +12,6 @@ for (var i = 1; i < 20; i++) {
 }
 
 sim.nodes[19].on('eth1:message', function (buf) {
-  console.log('GOT MESSAGE: ' + buf)
+  console.log('MESSAGE: ' + buf)
 })
-sim.nodes[0].send('eth0', Buffer('hello!'))
+sim.nodes[4].send('eth0', Buffer('hello!'))
