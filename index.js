@@ -9,16 +9,12 @@ function Sim () {
   if (!(this instanceof Sim)) return new Sim
   this.nodes = {}
   this.links = {}
-  this.addresses = {}
 }
 
 Sim.prototype.createNode = function (index, ifaces) {
   var self = this
   var node = new Node(ifaces)
   self.nodes[index] = node
-  Object.keys(ifaces).forEach(function (key) {
-    self.addresses[ifaces[key]] = index
-  })
   return node
 }
 
