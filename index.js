@@ -23,10 +23,5 @@ Sim.prototype.link = function (a, b) {
   var bsp = b.split(':')
   var anode = this.nodes[asp[0]]
   var bnode = this.nodes[bsp[0]]
-  anode.on(asp[1] + ':send', function (buf) {
-    bnode.emit(bsp[1] + ':message', buf)
-  })
-  bnode.on(bsp[1] + ':send', function (buf) {
-    anode.emit(asp[1] + ':message', buf)
-  })
+  anode.link(asp[1], bnode, bsp[1])
 }
