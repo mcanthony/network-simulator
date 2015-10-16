@@ -12,6 +12,7 @@
     "inherits": "^2.0.1"
   },
   "devDependencies": {
+    "ip-packet": "^1.0.2",
     "tape": "^4.2.1"
   },
   "scripts": {
