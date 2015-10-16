@@ -1,7 +1,7 @@
 var test = require('tape')
 var Simulator = require('../')
 
-test('linear routing', function (t) {
+test('linear one-way routing', function (t) {
   t.plan(1)
   var sim = new Simulator()
   for (var i = 0; i < 20; i++) (function (i) {
