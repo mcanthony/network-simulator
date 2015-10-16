@@ -14,7 +14,7 @@ for (var i = 1; i < 20; i++) {
   sim.link((i-1) + ':eth1', i + ':eth0')
 }
 
-sim.nodes[19].on('eth1:send', function (buf) {
+sim.nodes[19].on('eth1:message', function (buf) {
   console.log('GOT MESSAGE: ' + buf)
 })
-sim.nodes[0].emit('eth0:message', Buffer('hello!'))
+sim.nodes[0].send('eth0', Buffer('hello!'))
