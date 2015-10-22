@@ -23,7 +23,7 @@ for (var i = 1; i < 20; i++) {
 sim.nodes[19].on('eth1:message', function (buf) {
   console.log('MESSAGE: ' + buf)
 })
-sim.nodes[4].send('eth0', Buffer('hello!'))
+sim.nodes[4].send('eth1', Buffer('hello!'))
 ```
 
 # ip example
@@ -96,8 +96,7 @@ Wire the network interfaces for `a` and `b` together.
 
 ## node.send(iface, buf)
 
-Send `buf` out `iface`. A `'message'` event is generated on the node iface and
-on any linked interfaces.
+Send `buf` out `iface`. A `'message'` event is sent to any linked interfaces.
 
 ## node.link(iface, target, targetIface)
 
