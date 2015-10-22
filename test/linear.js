@@ -14,7 +14,7 @@ test('linear one-way routing', function (t) {
   for (var i = 1; i < 20; i++) {
     sim.link((i-1) + ':eth1', i + ':eth0')
   }
-  sim.nodes[19].on('eth1:message', function (buf) {
+  sim.nodes[19].on('eth0:message', function (buf) {
     t.deepEqual(buf, Buffer('hello!'))
   })
   sim.nodes[4].on('eth0:message', t.fail.bind(t, 'one-way'))
